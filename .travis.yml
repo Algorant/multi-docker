@@ -9,10 +9,10 @@ script:
   - docker run -e CI=true algorant/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t algorant/multi-client ./client
-  - docker build -t algorant/multi-nginx ./nginx
-  - docker build -t algorant/multi-server ./server
-  - docker build -t algorant/multi worker ./worker
+  - docker build -t skantastico/multi-client ./client
+  - docker build -t skantastico/multi-nginx ./nginx
+  - docker build -t skantastico/multi-server ./server
+  - docker build -t skantastico/multi worker ./worker
   # log in to the docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take those images and push to docker hub
